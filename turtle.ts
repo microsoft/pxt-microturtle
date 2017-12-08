@@ -11,7 +11,7 @@ enum TurtlePenMode {
 namespace turtle {
     let _x: number;
     let _y: number;
-    let _direction: number; // 0 right, 1 down, 2 right, 3 top
+    let _direction: number; // 0 right, 1 down, 2 left, 3 top
     let _brightness: number;
     let _penMode: TurtlePenMode = TurtlePenMode.Up;
     let _img: Image;
@@ -81,7 +81,6 @@ namespace turtle {
     function turn(quadrants: number): void {
         init();
         _direction = (_direction + quadrants) % 4; if (_direction < 0) _direction += 4;
-        paint();
     }
 
     /**
@@ -90,7 +89,7 @@ namespace turtle {
     //% blockId=turtleTurnLeft block="turn left"
     //% weight=89 blockGap=8
     export function turnLeft(): void {
-        turn(1);
+        turn(-1);
     }
 
     /**
@@ -99,7 +98,7 @@ namespace turtle {
     //% blockId=turtleTurnRight block="turn right"
     //% weight=88 blockGap=8
     export function turnRight(): void {
-        turn(-1);
+        turn(1);
     }
 
 
@@ -114,8 +113,8 @@ namespace turtle {
     //% weight=87
     export function setPosition(x: number, y: number): void {
         init();
-        _x = x % 5; if (_x < 0) _x += 4;
-        _y = y % 5; if (_y < 0) _y += 4;
+        _x = x % 5; if (_x < 0) _x += 5;
+        _y = y % 5; if (_y < 0) _y += 5;
         paint();
     }
 
