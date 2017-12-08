@@ -59,7 +59,7 @@ namespace turtle {
         const dx = _direction == 0 ? sign : _direction == 2 ? -sign : 0;
         const dy = _direction == 1 ? sign : _direction == 3 ? -sign : 0;
         const n = Math.abs(steps);
-        for (let i = 0; i < steps; ++i) {
+        for (let i = 0; i < n; ++i) {
             // paint if pen down
             if (_penMode == TurtlePenMode.Down)
                 _img.setPixelBrightness(_x, _y, _brightness);
