@@ -16,7 +16,7 @@ It starts in the center at ``2,2``, moving horizontally to the right.
 
 ## Reference
 
-### forward
+### forward #forward
 
 Moves the turtle forward by the given amount of steps. If the turtle goes out of the screen, it wraps around.
 
@@ -24,7 +24,7 @@ Moves the turtle forward by the given amount of steps. If the turtle goes out of
 turtle.forward(1)
 ```
 
-## turn left
+## turn left #turnLeft
 
 Turns the turtle in a clockwise fashion by 90 degrees.
 
@@ -33,7 +33,7 @@ turtle.turnLeft()
 ```
 
 
-## turn right
+## turn right #turnRight
 
 Turns the turtle in a counter-clockwise fashion by 90 degrees.
 
@@ -41,7 +41,7 @@ Turns the turtle in a counter-clockwise fashion by 90 degrees.
 turtle.turnRight()
 ```
 
-## set mode
+## set mode #setMode
 
 Sets the drawing mode of the turtle.
 
@@ -51,6 +51,14 @@ Sets the drawing mode of the turtle.
 
 ```sig
 turtle.setMode(TurtleMode.PenDown)
+```
+
+## set position ##setPosition
+
+Moves the turtle to a particular location
+
+```sig
+turtle.setLocation(1,1)
 ```
 
 ## License
