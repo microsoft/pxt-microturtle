@@ -1,4 +1,4 @@
-# micro turtle
+# micro turtle [![Build Status](https://travis-ci.org/Microsoft/pxt-microturtle.svg?branch=master)](https://travis-ci.org/Microsoft/pxt-microturtle)
 
 A LOGO-like turtle library for the micro:bit in MakeCode.
 
