@@ -1,10 +1,8 @@
-enum TurtleMode {
-    //% block="pen down"
-    PenDown,
-    //% block="pen up"
-    PenUp,
-    //% block="eraser"
-    Eraser
+enum TurtlePenMode {
+    //% block="down"
+    Down,
+    //% block="up"
+    Up
 }
 /**
  * Turtle graphics blocks
@@ -15,7 +13,7 @@ namespace turtle {
     let _y: number;
     let _direction: number; // 0 right, 1 down, 2 right, 3 top
     let _brightness: number;
-    let _penMode: TurtleMode = TurtleMode.PenUp;
+    let _penMode: TurtlePenMode = TurtlePenMode.Up;
     let _img: Image;
     let _delay = 400;
 
@@ -25,7 +23,7 @@ namespace turtle {
             led.setDisplayMode(DisplayMode.Greyscale);
             _x = 2;
             _y = 2;
-            _direction = 0;
+            _direction = 3;
             _brightness = 128;
             _img = images.createImage(`
                 . . . . .
@@ -62,18 +60,22 @@ namespace turtle {
         const dy = _direction == 1 ? sign : _direction == 3 ? -sign : 0;
         const n = Math.abs(steps);
         for (let i = 0; i < steps; ++i) {
-            // paint or erase
-            switch (_penMode) {
-                case TurtleMode.PenDown:
-                    _img.setPixelBrightness(_x, _y, _brightness);
-                    break;
-                case TurtleMode.Eraser:
-                    _img.setPixelBrightness(_x, _y, 0);
-                    break;
-            }
+            // paint if pen down
+            if (_penMode == TurtlePenMode.Down)
+                _img.setPixelBrightness(_x, _y, _brightness);
             // paint and update
             setPosition(_x + dx, _y + dy);
         }
+    }
+
+    /**
+     * Moves back by the given number of steps
+     * @param steps number of steps to move, eg: 1
+     */
+    //% blockId=turtleBack block="back %steps|steps"
+    //% weight=98 blockGap=8
+    export function back(steps: number): void {
+        forward(-steps);
     }
 
     function turn(quadrants: number): void {
@@ -95,29 +97,21 @@ namespace turtle {
      * Turns right by 90 degrees
      */
     //% blockId=turtleTurnRight block="turn right"
-    //% weight=88
+    //% weight=88 blockGap=8
     export function turnRight(): void {
         turn(-1);
     }
 
-    /**
-     * Sets the turtle mode
-     */
-    //% blockGap=8
-    //% blockId=turtleSetMode block="set mode %mode"
-    export function setMode(mode: TurtleMode): void {
-        init();
-        _penMode = mode;
-        paint();
-    }
 
     /**
      * Sets the turtle position
+     * @param x the horizontal position from 0 (left) to 4 (right), eg: 2
+     * @param y the vertical position from 0 (top) to 4 (bottom), eg: 2
      */
-    //% blockGap=8
     //% x.min=0 x.max=4
     //% y.min=0 y.max=4
     //% blockId=turtleSetPosition block="set position x: %x|y: %y"
+    //% weight=87
     export function setPosition(x: number, y: number): void {
         init();
         _x = x % 5; if (_x < 0) _x += 4;
@@ -125,8 +119,31 @@ namespace turtle {
         paint();
     }
 
+    /**
+     * Puts the pen down or up
+     */
+    //% blockGap=8
+    //% blockId=turtlePen block="pen %mode"
+    //% weight=65
+    export function pen(mode: TurtlePenMode): void {
+        init();
+        _penMode = mode;
+        paint();
+    }
+
+    /**
+     * Moves the turtle to the center of the screen 
+     */
+    //% blockGap=8
+    //% blockId=turtleHome block="home"
+    export function home(): void {
+        setPosition(2, 2);
+        _direction = 3;
+    }
+
     /** 
      * Sets the brightness
+     * @param brightness the brightness of the trail left by the turtle, eg: 128
      */
     //% blockGap=8
     //% brightness.min=0 brightness.max=255
@@ -143,6 +160,7 @@ namespace turtle {
     //% blockGap=8
     //% blockId=turtleSetSpeed block="set speed %speed"
     //% stepsPerSecond.min=1 stepsPerSecond.max=50
+    //% weight=10
     export function setSpeed(stepsPerSecond: number): void {
         if (stepsPerSecond <= 0) return;
 

@@ -1,6 +1,6 @@
 let i = 0
 i = 0
-turtle.setMode(TurtleMode.PenDown)
+turtle.pen(TurtlePenMode.Down)
 turtle.setSpeed(500)
 basic.forever(() => {
     i += 50

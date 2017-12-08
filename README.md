@@ -12,7 +12,7 @@ basic.forever(() => {
 ```
 
 The turtle is a single pixel moving on the micro:bit screen.
-It starts in the center at ``2,2``, moving horizontally to the right.
+It starts in the center at ``2,2``, pointing up.
 
 ## Reference
 
@@ -22,6 +22,14 @@ Moves the turtle forward by the given amount of steps. If the turtle goes out of
 
 ```sig
 turtle.forward(1)
+```
+
+### back #back
+
+Moves the turtle backward by the given amount of steps. If the turtle goes out of the screen, it wraps around.
+
+```sig
+turtle.back(1)
 ```
 
 ## turn left #turnLeft
@@ -41,16 +49,15 @@ Turns the turtle in a counter-clockwise fashion by 90 degrees.
 turtle.turnRight()
 ```
 
-## set mode #setMode
+## pen #pen
 
 Sets the drawing mode of the turtle.
 
-* ``pen up``, the turtle leaves no trail (this is the default)
-* ``pen down``, the turtle paints the LEDs
-* ``eraser``, the turtle turns off LEDs
+* ``up``, the turtle leaves no trail (this is the default)
+* ``down``, the turtle paints the LEDs
 
 ```sig
-turtle.setMode(TurtleMode.PenDown)
+turtle.pen(TurtlePenMode.Down)
 ```
 
 ## set position ##setPosition
@@ -59,6 +66,22 @@ Moves the turtle to a particular location
 
 ```sig
 turtle.setLocation(1,1)
+```
+
+## home #home
+
+Moves the turtle to the center of the screen, pointing up.
+
+```sig
+turtle.home()
+```
+
+## set speed #setSpeed
+
+Determines how many steps per second a trutle may take.
+
+```sig
+turtle.setSpeed(50)
 ```
 
 ## License
