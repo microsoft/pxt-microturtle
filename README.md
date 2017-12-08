@@ -60,7 +60,7 @@ Sets the drawing mode of the turtle.
 turtle.pen(TurtlePenMode.Down)
 ```
 
-## set position ##turtle-setposition
+## set position #turtle-setposition
 
 Moves the turtle to a particular location
 
