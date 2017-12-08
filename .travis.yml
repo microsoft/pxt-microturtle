@@ -4,6 +4,7 @@ node_js:
 script:
   - "npm install -g pxt"
   - "pxt target microbit"
+  - "pxt install"
   - "pxt build"
 sudo: false
 cache:
