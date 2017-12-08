@@ -15,7 +15,7 @@ namespace turtle {
     let _brightness: number;
     let _penMode: TurtlePenMode = TurtlePenMode.Up;
     let _img: Image;
-    let _delay = 100;
+    let _delay = 250;
 
     function init() {
         if (!_img) {
