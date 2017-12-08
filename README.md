@@ -16,7 +16,7 @@ It starts in the center at ``2,2``, pointing up.
 
 ## Reference
 
-### forward #forward
+### forward #turtle-forward
 
 Moves the turtle forward by the given amount of steps. If the turtle goes out of the screen, it wraps around.
 
@@ -24,7 +24,7 @@ Moves the turtle forward by the given amount of steps. If the turtle goes out of
 turtle.forward(1)
 ```
 
-### back #back
+### back #turtle-back
 
 Moves the turtle backward by the given amount of steps. If the turtle goes out of the screen, it wraps around.
 
@@ -32,7 +32,7 @@ Moves the turtle backward by the given amount of steps. If the turtle goes out o
 turtle.back(1)
 ```
 
-## turn left #turnLeft
+## turn left #turtle-turnleft
 
 Turns the turtle in a clockwise fashion by 90 degrees.
 
@@ -41,7 +41,7 @@ turtle.turnLeft()
 ```
 
 
-## turn right #turnRight
+## turn right #turtle-turnright
 
 Turns the turtle in a counter-clockwise fashion by 90 degrees.
 
@@ -49,7 +49,7 @@ Turns the turtle in a counter-clockwise fashion by 90 degrees.
 turtle.turnRight()
 ```
 
-## pen #pen
+## pen #turtle-pen
 
 Sets the drawing mode of the turtle.
 
@@ -60,15 +60,15 @@ Sets the drawing mode of the turtle.
 turtle.pen(TurtlePenMode.Down)
 ```
 
-## set position ##setPosition
+## set position ##turtle-setposition
 
 Moves the turtle to a particular location
 
 ```sig
-turtle.setLocation(1,1)
+turtle.setPosition(1,1)
 ```
 
-## home #home
+## home #turtle-home
 
 Moves the turtle to the center of the screen, pointing up.
 
@@ -76,7 +76,7 @@ Moves the turtle to the center of the screen, pointing up.
 turtle.home()
 ```
 
-## set speed #setSpeed
+## set speed #turtle-setspeed
 
 Determines how many steps per second a trutle may take.
 
