@@ -1,0 +1,11 @@
+{
+    "name": "turtle",
+    "dependencies": {
+        "core": "*"
+    },
+    "description": "A LOGO-like turtle library",
+    "files": [
+        "turtle.ts",
+        "README.md"
+    ]
+}
