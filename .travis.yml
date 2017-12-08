@@ -3,8 +3,7 @@ node_js:
   - "5.7.0"
 script:
   - "npm install -g pxt"
-  - "ls -R"
-  - "pxt install microbit"
+  - "pxt target microbit"
   - "pxt build"
 sudo: false
 cache:
