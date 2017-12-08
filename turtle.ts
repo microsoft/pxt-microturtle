@@ -155,6 +155,7 @@ namespace turtle {
 
     /**
      * Define the steps per second
+     * @param stepsPerSecond steps per second, eg: 25
      */
     //% blockGap=8
     //% blockId=turtleSetSpeed block="set speed %speed"
