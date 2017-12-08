@@ -8,5 +8,6 @@
     "files": [
         "turtle.ts",
         "README.md"
-    ]
+    ],
+    "public": true
 }
