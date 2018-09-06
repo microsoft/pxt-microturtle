@@ -164,6 +164,6 @@ namespace turtle {
     export function setSpeed(stepsPerSecond: number): void {
         if (stepsPerSecond <= 0) return;
 
-        _delay = Math.max(1, Math.min(50, 1000 / stepsPerSecond));
+        _delay = Math.max(1, Math.min(50, Math.idiv(1000, stepsPerSecond)));
     }
 }
