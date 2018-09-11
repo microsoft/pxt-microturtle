@@ -166,4 +166,8 @@ namespace turtle {
 
         _delay = Math.max(1, Math.min(50, Math.idiv(1000, stepsPerSecond)));
     }
+
+    // auto-initialize
+    init()
+    paint()
 }
