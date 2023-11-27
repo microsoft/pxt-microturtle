@@ -78,7 +78,7 @@ turtle.home()
 
 ## set speed #turtle-setspeed
 
-Determines how many steps per second a trutle may take.
+Determines how many steps per second a turtle may take.
 
 ```sig
 turtle.setSpeed(50)
